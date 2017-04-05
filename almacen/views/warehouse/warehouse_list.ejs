@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Gestión de Almacen</title>
+	<% include ../head %>
+	</head>
+<body>
+	<h1>Gestión de Almacen</h1>
+	<a class="myButton" href="">Agregar +</a>
+	
+	<h3>Listado:</h3>
+
+	<table>                 
+		<thead>                         
+			<tr>
+				<td>Id</td>
+				<td>Nombre</td>
+				<td>Direccion</td>
+			 </tr>
+		</thead>
+		<tbody>
+			<% for (var i = 0 ; i < almacen.length ; i ++){ %>
+			<tr>
+			    <td><%= almacen[i].id_almacen %></td>
+			    <td><%= almacen[i].nombre %></td>
+			    <td><%= almacen[i].direccion %></td>
+			</tr>
+			<% } %>
+		</tbody>
+	</table>
+
+	<footer>
+		<% include ../footer %>
+	</footer>
+
+
+</body>
+</html>
+

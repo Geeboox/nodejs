@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include ../views/head %>
+</head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <a class="myButton" href="/product">Gestión de Productos</a>
+    <a class="myButton" href="/warehouse">Gestión de Almacen</a>
+    <a class="myButton" href="/stock">Gestión de Stock</a>
+    <a class="myButton" href="/cost">Gestión de Precios</a>
+
+    <footer>         
+	<% include ../views/footer %>     
+    </footer>  
+
+</body>
+</html>
