@@ -4,16 +4,21 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var moment = require('moment');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var warehouse_list = require('./routes/warehouse/warehouse_list');
 var product_list = require('./routes/product/product_list');
-var cost_list = require('./routes/cost/cost_list');
-var stock_list = require('./routes/stock/stock_list');
+//var cost_list = require('./routes/cost/cost_list');
+//var stock_list = require('./routes/stock/stock_list');
 var prueba = require('./routes/prueba');
 
 var app = express();
+
+
+app.use(express.static('public'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,8 +35,8 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/warehouse/warehouse_list',warehouse_list);
 app.use('/product/product_list',product_list);
-app.use('/cost/cost_list',cost_list);
-app.use('/stock/stock_list',stock_list);
+//app.use('/cost/cost_list',cost_list);
+//app.use('/stock/stock_list',stock_list);
 app.use('/prueba', prueba);
 
 
@@ -65,6 +70,9 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+
+app.locals.moment = require('moment');
 
 
 module.exports = app;

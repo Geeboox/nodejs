@@ -8,10 +8,20 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <a class="myButton" href="/product">Gestión de Productos</a>
-    <a class="myButton" href="/warehouse">Gestión de Almacen</a>
-    <a class="myButton" href="/stock">Gestión de Stock</a>
-    <a class="myButton" href="/cost">Gestión de Precios</a>
+    
+
+	<form action="/product/product_list" method="post"> 			
+		<input type="submit" class="myButton" value="Gestión de Productos" /> 		
+	</form>
+	<form action="/warehouse/warehouse_list" method="post">                 
+		<input type="submit" class="myButton" value="Gestión de Almacen" />         
+	</form>
+	<form action="/stock/stock_list" method="post">                 
+		<input type="submit" class="myButton" value="Gestión de Stock" />         
+	</form>
+	<form action="/cost/cost_list" method="post">
+                <input type="submit" class="myButton" value="Gestión de Precios" />
+        </form>
 
     <footer>         
 	<% include ../views/footer %>     

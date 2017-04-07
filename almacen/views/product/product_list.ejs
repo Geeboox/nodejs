@@ -9,7 +9,8 @@
 
 	<h1>Productos</h1>
 
-	<a class="myButton" href="/new_product">Agregar +</a>
+
+	<a class="myButton" href="/product/new_product">Agregar +</a>
 	
 	<h3>Listado:</h3>
 
@@ -28,11 +29,21 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			
-		</tr>
+		<% for (var i = 0 ; i < producto.length ; i ++){ %>                         
+		<tr>                             
+			<td><%= producto[i].id_producto %></td>                             
+			<td><%= moment(Date.now()).format('MM/DD/YYYY') %></td>                          
+			<td><%= producto[i].linea %></td> 
+			<td><%= producto[i].codigo %></td>
+			<td><%= producto[i].marca %></td>
+			<td><%= producto[i].descripcion %></td>
+			<td><%= producto[i].n_comercial %></td>
+			<td><%= producto[i].imagen %></td>                        
+		</tr>                         
+		<% } %>
 	</tbody>
 	</table>
+
 
 	<footer>         
 		<% include ../footer %>     
