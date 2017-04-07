@@ -17,9 +17,17 @@ router.post('/', function(req, res) {
 		res.render('warehouse/warehouse_list',{
 			almacen: result
 		});
-		//console.log(result);
+
 		});
 });
+
+
+
+router.get('/warehouse_form', (req, res) => {         
+	res.render('warehouse/warehouse_list') 
+});
+
+
 
 
 module.exports = router;

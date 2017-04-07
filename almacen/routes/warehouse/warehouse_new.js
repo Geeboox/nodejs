@@ -12,14 +12,21 @@ var knex = require('knex')({
 	} 
 });
 
-router.post('/', function(req, res) {
-		knex.select('id_almacen','nombre','direccion').from('almacen').then(function(result){
-		res.render('warehouse/warehouse_list',{
-			almacen: result
-		});
-		//console.log(result);
-		});
+router.get('/', function(req, res) {   
+	res.render('warehouse/warehouse_form'); 
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 module.exports = router;

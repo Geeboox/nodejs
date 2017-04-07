@@ -6,17 +6,16 @@
 	<% include ../head %>
 	</head>
 <body>
+
+<div class="container">	
 	<h1>Gestión de Almacen</h1>
+		                 
+	<a class="btn btn-primary" href="/warehouse/warehouse_new">Agregar +</a>
 	
 
-	                 
-	<input type="button" href="/warehouse_form" class="myButton" value="Agregar +" />         
-	
-
-	
 	<h3>Listado:</h3>
 
-	<table>                 
+	<table class="table table-striped" >                 
 		<thead>                         
 			<tr>
 				<td>Id</td>
@@ -34,7 +33,7 @@
 			<% } %>
 		</tbody>
 	</table>
-
+</div>
 	<footer>
 		<% include ../footer %>
 	</footer>
