@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Gestión de Almacen</title>
+	<% include ../head %>
+	</head>
+<body>
+	<h1>Editar Almacen</h1>
+	
+
+	<div class="container">
+  		
+		<h3>Registro:</h3>
+ 		
+		<form action="/warehouse/warehouse_update" method="post"> 
+		<input class="form-control" type="hidden" name="id_almacen" value="<%= id_almacen %>" required>			
+		<% for (var i = 0 ; i < almacen.length ; i ++){ %>
+		Nombre: <br><input class="form-control" type="text" name="wh_name" value="<%= almacen[i].nombre %>" required><br> 			
+		Dirección: <br><input class="form-control" type="text" name="wh_address" value="<%= almacen[i].direccion %>" required><br> 
+		<% } %>
+		<input  class="btn btn-primary" type="submit" value="Guardar"> 		
+		
+		</form>
+  	
+		<input  class="btn btn-danger" action="action" type="button" value="Cancelar" onclick="history.go(-1);" />  	
+	</div>
+	
+	
+	</table>
+
+	<footer>
+		<% include ../footer %>
+	</footer>
+
+
+</body>
+</html>
+

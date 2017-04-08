@@ -21,6 +21,7 @@
 				<td>Id</td>
 				<td>Nombre</td>
 				<td>Direccion</td>
+				<td>Acciones</td>
 			 </tr>
 		</thead>
 		<tbody>
@@ -29,6 +30,16 @@
 			    <td><%= almacen[i].id_almacen %></td>
 			    <td><%= almacen[i].nombre %></td>
 			    <td><%= almacen[i].direccion %></td>
+			    <td>
+				<form action="/warehouse/warehouse_edit" method="post">
+					<input  type="hidden" name="id_almacen" value="<%= almacen[i].id_almacen %>">
+					<input  class="btn btn-primary" type="submit" value="Editar">
+				</form>
+				<form action="/warehouse/warehouse_delete" method="post">                                         
+					<input  type="hidden" name="id_almacen" value="<%= almacen[i].id_almacen %>">                                         
+					<input  class="btn btn-alert" type="submit" value="Eliminar">                                 
+				</form>
+			    </td>
 			</tr>
 			<% } %>
 		</tbody>

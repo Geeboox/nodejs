@@ -12,7 +12,14 @@ var users = require('./routes/users');
 var warehouse_list = require('./routes/warehouse/warehouse_list');
 var warehouse_new = require('./routes/warehouse/warehouse_new');
 var warehouse_add = require('./routes/warehouse/warehouse_add');
+var warehouse_delete = require('./routes/warehouse/warehouse_delete');
+var warehouse_drop = require('./routes/warehouse/warehouse_drop');
+var warehouse_edit = require('./routes/warehouse/warehouse_edit');
+var warehouse_update = require('./routes/warehouse/warehouse_update');
 var product_list = require('./routes/product/product_list');
+var product_new = require('./routes/product/product_new');
+var product_add = require('./routes/product/product_add');
+
 
 //var cost_list = require('./routes/cost/cost_list');
 //var stock_list = require('./routes/stock/stock_list');
@@ -39,7 +46,14 @@ app.use('/users', users);
 app.use('/warehouse/warehouse_list',warehouse_list);
 app.use('/warehouse/warehouse_new',warehouse_new);
 app.use('/warehouse/warehouse_add',warehouse_add);
+app.use('/warehouse/warehouse_delete',warehouse_delete);
+app.use('/warehouse/warehouse_drop',warehouse_drop);
+app.use('/warehouse/warehouse_edit',warehouse_edit);
+app.use('/warehouse/warehouse_update',warehouse_update);
 app.use('/product/product_list',product_list);
+app.use('/product/product_new',product_new);
+app.use('/product/product_add',product_add);
+
 //app.use('/cost/cost_list',cost_list);
 //app.use('/stock/stock_list',stock_list);
 app.use('/prueba', prueba);
@@ -74,6 +88,17 @@ app.use(function(err, req, res, next) {
         message: err.message,
         error: {}
     });
+});
+
+
+var knex = require('knex')({ 	
+	client : 'pg', 	connection : { 		
+		host : 'localhost', 		
+		port : '5432', 		
+		user : 'hadas', 		
+		password : 'hadas2017', 		
+		database : 'hadas' 	
+}  
 });
 
 

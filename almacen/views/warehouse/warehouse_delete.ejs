@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Gestión de Almacen</title>
+	<% include ../head %>
+	</head>
+<body>
+	<h1>Eliminar Almacen</h1>
+	
+
+	<div class="container">
+  		
+		<h3>¿Está seguro que desea eliminar este registro "<%= id_almacen %>" ?</h3>
+ 		
+		<form action="/warehouse/warehouse_drop" method="post">
+			<input type="hidden" name="id_almacen" value="<%= id_almacen %>"> 			
+			<input  class="btn btn-danger" type="submit" value="Eliminar">	
+		</form>	
+		<input  class="btn btn-primary" action="action" type="button" value="Cancelar" onclick="history.go(-1);" />  	
+	</div>
+	
+	
+	</table>
+
+	<footer>
+		<% include ../footer %>
+	</footer>
+
+
+</body>
+</html>
+
