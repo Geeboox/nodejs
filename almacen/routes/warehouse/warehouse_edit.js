@@ -12,14 +12,15 @@ client : 'pg',  connection : {
 });
 
 
-router.post('/', function(req, res) { 	
-	
-	knex('almacen').insert([ {'nombre': req.param('wh_name'),'direccion':req.param('wh_address')} ])
-	.then (function(result) { 
-		knex.select().from('almacen').then(function(result){                 
-			res.render('warehouse/warehouse_list',{almacen: result});         
-		}); 
-	});
+router.post('/', function(req, res) { 		
+	var id_almacen = req.param('id_almacen');
+	knex.select('nombre','direccion').from('almacen').orderBy('id_almacen', 'asc').where('id_almacen',id_almacen).then(function(result){ 		
+		res.render('warehouse/warehouse_edit', { 			
+			id_almacen: id_almacen,			
+			almacen:result		
+		}); 	
+	});	
+
 });
 
 

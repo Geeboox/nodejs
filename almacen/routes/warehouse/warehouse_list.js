@@ -13,7 +13,7 @@ var knex = require('knex')({
 });
 
 router.post('/', function(req, res) {
-		knex.select('id_almacen','nombre','direccion').from('almacen').then(function(result){
+		knex.select().from('almacen').orderBy('id_almacen', 'asc').then(function(result){
 		res.render('warehouse/warehouse_list',{
 			almacen: result
 		});

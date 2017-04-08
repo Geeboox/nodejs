@@ -13,13 +13,16 @@ client : 'pg',  connection : {
 
 
 router.post('/', function(req, res) { 	
+
+	knex('almacen').where('id_almacen',req.param('id_almacen')).update({nombre: req.param('wh_name'),direccion:req.param('wh_address')}).then(function(result){ 
+		knex.select().from('almacen').orderBy('id_almacen', 'asc').then(function(result){ 		
+			res.render('warehouse/warehouse_list', { 			
+				almacen: result 		
+			}); 	
+		});
 	
-	knex('almacen').insert([ {'nombre': req.param('wh_name'),'direccion':req.param('wh_address')} ])
-	.then (function(result) { 
-		knex.select().from('almacen').then(function(result){                 
-			res.render('warehouse/warehouse_list',{almacen: result});         
-		}); 
 	});
+	
 });
 
 

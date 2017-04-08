@@ -14,12 +14,13 @@ client : 'pg',  connection : {
 
 router.post('/', function(req, res) { 	
 	
-	knex('almacen').insert([ {'nombre': req.param('wh_name'),'direccion':req.param('wh_address')} ])
-	.then (function(result) { 
-		knex.select().from('almacen').then(function(result){                 
-			res.render('warehouse/warehouse_list',{almacen: result});         
-		}); 
-	});
+	var id_almacen = req.param('id_almacen');
+	//console.log(id_almacen);
+
+	res.render('warehouse/warehouse_delete',{
+                 id_almacen: id_almacen
+                });
+
 });
 
 
