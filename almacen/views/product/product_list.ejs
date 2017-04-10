@@ -32,13 +32,23 @@
 		<% for (var i = 0 ; i < producto.length ; i ++){ %>                         
 		<tr>                             
 			<td><%= producto[i].id_producto %></td>                             
-			<td><%= moment(Date.now()).format('MM/DD/YYYY') %></td>                          
+			<td><%= moment(producto[i].fecha).format('DD/MM/YYYY') %></td>                          
 			<td><%= producto[i].linea %></td> 
 			<td><%= producto[i].codigo %></td>
 			<td><%= producto[i].marca %></td>
 			<td><%= producto[i].descripcion %></td>
 			<td><%= producto[i].n_comercial %></td>
-			<td><%= producto[i].imagen %></td>                        
+			<td><%= producto[i].imagen %></td>
+			<td>                                 
+			<form action="/product/product_edit" method="post">
+			<input  type="hidden" name="id_producto" value="<%= producto[i].id_producto %>">                                         
+			<input  class="btn btn-primary" type="submit" value="Editar">                                 	
+			</form>                                 
+			<form action="/product/product_delete" method="post">                                          			
+			<input  type="hidden" name="id_producto" value="<%= producto[i].id_producto %>">                                         
+			<input  class="btn btn-alert" type="submit" value="Eliminar">                                  
+			</form> 
+			</td>                        
 		</tr>                         
 		<% } %>
 	</tbody>

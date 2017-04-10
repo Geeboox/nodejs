@@ -1,0 +1,21 @@
+<!DOCTYPE html> 
+<html>  
+<head>         
+	<title>Gestión de Producto</title>         
+	<% include ../head %>         
+</head> 
+<body>         
+	<h1>Eliminar Producto</h1>           
+	<div class="container">                  
+	<h3>¿Está seguro que desea eliminar este registro "<%= id_producto %>" ?</h3>                  
+	<form action="/product/product_drop" method="post">                         
+	<input type="hidden" name="id_producto" value="<%= id_producto %>">                         
+	<input  class="btn btn-danger" type="submit" value="Eliminar">                 
+	</form>                 
+	<input  class="btn btn-primary" action="action" type="button" value="Cancelar" onclick="history.go(-1);" />         
+	</div>           
+	<footer>                 
+	<% include ../footer %>         
+	</footer>   
+</body> 
+</html>

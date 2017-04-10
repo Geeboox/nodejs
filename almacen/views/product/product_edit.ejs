@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+<head> 	
+	<title>Gestión de Almacen</title> 	
+	<% include ../head %> 	
+</head> 
+<body>
+
+	<h1>Nuevo Producto</h1>
+	<div class="container">
+		<h3>Registro:</h3>
+		<form action="/product/product_update" method="post">
+		<input class="form-control" type="hidden" name="id_producto" value="<%= id_producto %>" required>
+		<% for (var i = 0 ; i < producto.length ; i ++){ %>
+		Fecha: <br><input class="form-control" type="date" name="p_date" value="<%= moment(producto[i].fecha).format('YYYY-MM-DD') %>" required><br>
+		Linea: <br><input class="form-control" type="text" name="p_line" value="<%= producto[i].linea %>" required><br>
+		Codigo: <br><input class="form-control" type="text" name="p_code" value="<%= producto[i].codigo %>" required><br>
+		Marca: <br><input class="form-control" type="text" name="p_brand" value="<%= producto[i].marca %>" required><br>
+		Descripción: <br><input class="form-control" type="text" name="p_description" value="<%= producto[i].descripcion %>" required><br>
+		Nombre: <br><input class="form-control" type="text" name="p_name" value="<%= producto[i].n_comercial %>" required><br>
+		Imagen: <br><input class="form-control" type="text" name="p_img" value="<%= producto[i].imagen %>" required><br>
+		 <% } %>
+		<input  class="btn btn-primary" type="submit" value="Guardar">
+		</form>
+
+		<input  class="btn btn-danger" action="action" type="button" value="Cancelar" onclick="history.go(-1);" />
+	</div>
+
+	</table>
+
+	<footer> 		
+		<% include ../footer %> 	
+	</footer>
+
+</body> 
+</html>
+

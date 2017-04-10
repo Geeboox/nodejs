@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');  
 
-
 var knex = require('knex')({ 	
 	client : 'pg', 	connection : { 		
 		host : 'localhost', 		
@@ -13,11 +12,9 @@ var knex = require('knex')({
 	}  
 });
 
-
-
 router.post('/', function(req, res) {                 
 	knex.select('id_producto','fecha','linea','codigo','marca','descripcion','n_comercial','imagen')
-	.from('producto').then(function(result){                 		
+	.from('producto').orderBy('id_producto', 'asc').then(function(result){                 		
 		res.render('product/product_list',{                         
 			producto: result                 
 		});                 

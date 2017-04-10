@@ -9,6 +9,7 @@ var moment = require('moment');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
 var warehouse_list = require('./routes/warehouse/warehouse_list');
 var warehouse_new = require('./routes/warehouse/warehouse_new');
 var warehouse_add = require('./routes/warehouse/warehouse_add');
@@ -16,9 +17,14 @@ var warehouse_delete = require('./routes/warehouse/warehouse_delete');
 var warehouse_drop = require('./routes/warehouse/warehouse_drop');
 var warehouse_edit = require('./routes/warehouse/warehouse_edit');
 var warehouse_update = require('./routes/warehouse/warehouse_update');
+
 var product_list = require('./routes/product/product_list');
 var product_new = require('./routes/product/product_new');
 var product_add = require('./routes/product/product_add');
+var product_delete = require('./routes/product/product_delete'); 
+var product_drop = require('./routes/product/product_drop');
+var product_edit = require('./routes/product/product_edit');
+var product_update = require('./routes/product/product_update');
 
 
 //var cost_list = require('./routes/cost/cost_list');
@@ -43,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
 app.use('/warehouse/warehouse_list',warehouse_list);
 app.use('/warehouse/warehouse_new',warehouse_new);
 app.use('/warehouse/warehouse_add',warehouse_add);
@@ -50,9 +57,15 @@ app.use('/warehouse/warehouse_delete',warehouse_delete);
 app.use('/warehouse/warehouse_drop',warehouse_drop);
 app.use('/warehouse/warehouse_edit',warehouse_edit);
 app.use('/warehouse/warehouse_update',warehouse_update);
+
 app.use('/product/product_list',product_list);
 app.use('/product/product_new',product_new);
 app.use('/product/product_add',product_add);
+app.use('/product/product_delete',product_delete); 
+app.use('/product/product_drop',product_drop); 
+app.use('/product/product_edit',product_edit); 
+app.use('/product/product_update',product_update);
+
 
 //app.use('/cost/cost_list',cost_list);
 //app.use('/stock/stock_list',stock_list);

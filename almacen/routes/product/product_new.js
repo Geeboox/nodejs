@@ -1,8 +1,6 @@
 var express = require('express'); 
 var router = express.Router();
 
-
-
 var knex = require('knex')({ 	
 	client : 'pg', 	connection : {
 	host : 'localhost', 		 		
@@ -14,6 +12,7 @@ var knex = require('knex')({
 
 });
 
-router.get('/', function(req, res) { 	res.render('product/product_form'); });
-
+router.get('/', function(req, res) { 	
+	res.render('product/product_form'); 
+});
 module.exports = router;
